@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Breathing Brushes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>Breathing Brushes</h1>
+        <p>Where every breath becomes art!</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <button class="snipcart-checkout cart-btn">
+        🎨 Cart (<span class="snipcart-items-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+<main class="product-details-container">
+  <div class="product-details">
+    <div class="gallery-container">
+      <!-- Main Image Display -->
+      <img id="mainImage" src="assets/craft-front2.jpg" alt="Tissue Art - Evil Eye" class="main-image">
+      
+      <!-- Thumbnail Gallery -->
+      <div class="thumbnail-container">
+        <img src="assets/craft-front2.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/craft-front2.jpg')">
+        <img src="assets/craft-side2.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/craft-side2.jpg')">
+        <img src="assets/craft-detail1.2.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/craft-detail1.2.jpg')">
+        <img src="assets/craft-detail2.2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/craft-detail2.2.jpg')">
+        <img src="assets/craft2.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/craft2.jpg')">
+      </div>
+    </div>
+
+    <!-- 🟢 FIX: wrap info + button together -->
+    <div class="details-column">
+      <div class="details-info">
+        <h2>"Elegant Car Hanging Decor"</h2>
+        <p class="details-price">50 AED</p>
+        <p class="details-description">Handcrafted car hanging ornament that adds elegance to your vehicle's interior. This delicate piece features intricate tissue paper artistry sealed with durable resin for long-lasting beauty. The gentle swaying motion creates a calming atmosphere while driving.</p>
+        <ul class="details-features">
+          <li>Size: 6 inches long (15 cm) including ribbon</li>
+          <li>Material: Premium tissue paper with resin coating</li>
+          <li>Design: Customizable colors and patterns</li>
+          <li>Attachment: Soft satin ribbon with adjustable length</li>
+          <li>Safety: Lightweight (only 30g) and shatterproof</li>
+          <li>Protection: UV-resistant to prevent fading</li>
+          <li>Packaging: Gift box included</li>
+          <li>Shipping: Free UAE delivery (2-3 business days)</li>
+        </ul>
+        <p>Each car hanger is individually crafted with attention to detail, making it both a functional accessory and a miniature work of art. The smooth, rounded edges ensure safety while driving, and the durable construction withstands daily sun exposure without losing its vibrant colors.</p>
+      </div>
+
+      <button class="snipcart-add-item buy-btn"
+        data-item-id="craft-2"
+        data-item-price="50 AED"
+        data-item-url="/craft1-details.html?id=car-hanging-1"
+        data-item-description="Handcrafted car hanging ornament with tissue paper design"
+        data-item-image="assets/craft2.jpg"
+        data-item-name="Elegant Car Hanging Decor">
+        Add to Cart
+      </button>
+    </div>
+    <!-- ✅ END FIX -->
+  </div>
+
+  <!-- Image Zoom Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image">
+  </div>
+</main>
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="#paintings">Paintings</a>
+        <a href="#crafts">Crafts</a>
+        <a href="#custom">Custom Orders</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: info@breathingbrushes.com</p>
+        <p>Phone: +971506702932</p>
+        <p>Address: DSO, Dubai, UAE</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2023 Breathing Brushes | Handmade Art & Crafts</p>
+    </div>
+  </footer>
+
+  <!-- Snipcart Setup -->
+  <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_API_KEY_HERE"></div>
+  
+  <script>
+    // Image Gallery Functionality
+    function changeImage(thumbnail, newSrc) {
+      // Update main image
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = newSrc;
+      mainImage.alt = thumbnail.alt;
+      
+      // Update active thumbnail
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+      });
+      thumbnail.classList.add('active');
+    }
+    
+    // Zoom Functionality
+    const mainImage = document.getElementById('mainImage');
+    const modal = document.getElementById('imageModal');
+    const zoomedImg = document.getElementById('zoomedImage');
+    
+    mainImage.addEventListener('click', function() {
+      zoomedImg.src = this.src;
+      zoomedImg.alt = this.alt;
+      modal.style.display = 'flex';
+    });
+    
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    
+    // Close modal when clicking outside image
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

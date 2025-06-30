@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details | Breathing Brushes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
-
 </head>
 <body>
   <header>
     <div class="logo-container">
-    <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
-    <div class="logo-text">
-      <h1>Breathing Brushes</h1>
-      <p>Where every breath becomes art!</p>
+      <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>Breathing Brushes</h1>
+        <p>Where every breath becomes art!</p>
+      </div>
     </div>
-  </div>
-  <nav>
-    <a href="#paintings">Paintings</a>
-    <a href="#crafts">Crafts</a>
-    <a href="#custom">Custom</a>
-    <button class="snipcart-checkout cart-btn">
-      🎨 Cart (<span class="snipcart-items-count">0</span>)
-    </button>
-  </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <button class="snipcart-checkout cart-btn">
+        🎨 Cart (<span class="snipcart-items-count">0</span>)
+      </button>
+    </nav>
   </header>
 
   <main class="product-details-container">
     <div class="product-details">
       <div class="gallery-container">
-        <!-- Main Image Display -->
-        <img id="mainImage" src="assets/painting2.jpg" alt="Mandala Art - Front View" class="main-image">
-        
-        <!-- Thumbnail Gallery -->
+        <img id="mainImage" src="assets/painting2.jpg" alt="Mandala Art - Front View" class="main-image" />
         <div class="thumbnail-container">
-          <img src="assets/painting2.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/painting2.jpg')">
-          <img src="assets/mandala-side2.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/mandala-side2.jpg')">
-          <img src="assets/mandala-detail1.2.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail1.2.jpg')">
-          <img src="assets/mandala-detail2.2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail2.2.jpg')">
-          <img src="assets/mandala-packaging2.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/mandala-packaging2.jpg')">
+          <img src="assets/painting2.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/painting2.jpg')" />
+          <img src="assets/mandala-side2.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/mandala-side2.jpg')" />
+          <img src="assets/mandala-detail1.2.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail1.2.jpg')" />
+          <img src="assets/mandala-detail2.2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail2.2.jpg')" />
+          <img src="assets/mandala-packaging2.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/mandala-packaging2.jpg')" />
         </div>
       </div>
-      
-      <div class="details-info">
-        <h2>"Mandala Art"</h2>
-        <p class="details-price">200 AED</p>
-        <div class="details-description">
-          <p>This exquisite mandala painting features:</p>
-          <ul>
-            <li>Front view showing the complete design</li>
-            <li>Side view demonstrating the canvas texture</li>
-            <li>Close-up details of intricate patterns</li>
-            <li>Packaging included for safe delivery</li>
+
+      <!-- ✅ WRAP TEXT + BUTTON TOGETHER -->
+      <div class="details-column">
+        <div class="details-info">
+          <h2>"Mandala Art"</h2>
+          <p class="details-price">300 AED</p>
+          <p class="details-description">
+            Hand-painted mandala artwork on canvas. This intricate piece measures 
+            12x16 inches and was created using high-quality acrylic paints. Each 
+            mandala is uniquely designed with spiritual symbolism and takes 
+            approximately 15 hours to complete.
+          </p>
+          <ul class="details-features">
+            <li>Size: 12x16 inches (30x40 cm)</li>
+            <li>Medium: Acrylic on canvas</li>
+            <li>Framing: Unframed (edges painted)</li>
+            <li>Shipping: Free worldwide delivery</li>
           </ul>
-          <p>Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.</p>
+          <p>
+            Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.
+          </p>
         </div>
-        
+
         <button class="snipcart-add-item buy-btn"
-          data-item-id="painting-1"
-          data-item-price="200"
-          data-item-url="/product-details.html?id=painting-1"
+          data-item-id="painting-2"
+          data-item-price="300 AED"
+          data-item-url="/painting2-details.html?id=painting-2"
           data-item-description="Hand-painted mandala artwork on canvas, 12x16 inches"
-          data-item-image="assets/mandala-front.jpg"
+          data-item-image="assets/mandala-front2.jpg"
           data-item-name="Mandala Art">
           Add to Cart
         </button>
       </div>
     </div>
-    
-    <!-- Image Zoom Modal -->
-    <div id="imageModal" class="modal">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image">
-    </div>
   </main>
 
+  <!-- Image Zoom Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image" />
+  </div>
+
   <footer>
-       <div class="footer-content">
+    <div class="footer-content">
       <div class="footer-section">
         <h4>Quick Links</h4>
         <a href="#paintings">Paintings</a>
@@ -86,8 +90,9 @@
       </div>
       <div class="footer-section">
         <h4>Contact</h4>
-        <p>Email: hello@breathingbrushes.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Email: breathing.brushes001@gmail.com</p>
+        <p>Phone: +971506702932</p>
+        <p>Address: DSO, Dubai, UAE</p>
       </div>
     </div>
     <div class="copyright">
@@ -98,38 +103,33 @@
   <!-- Snipcart Setup -->
   <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
   <div hidden id="snipcart" data-api-key="YOUR_API_KEY_HERE"></div>
-  
+
   <script>
-    // Image Gallery Functionality
     function changeImage(thumbnail, newSrc) {
-      // Update main image
       const mainImage = document.getElementById('mainImage');
       mainImage.src = newSrc;
       mainImage.alt = thumbnail.alt;
-      
-      // Update active thumbnail
+
       document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.classList.remove('active');
       });
       thumbnail.classList.add('active');
     }
-    
-    // Zoom Functionality
+
     const mainImage = document.getElementById('mainImage');
     const modal = document.getElementById('imageModal');
     const zoomedImg = document.getElementById('zoomedImage');
-    
+
     mainImage.addEventListener('click', function() {
       zoomedImg.src = this.src;
       zoomedImg.alt = this.alt;
       modal.style.display = 'flex';
     });
-    
+
     function closeModal() {
       modal.style.display = 'none';
     }
-    
-    // Close modal when clicking outside image
+
     modal.addEventListener('click', function(e) {
       if (e.target === modal) {
         closeModal();

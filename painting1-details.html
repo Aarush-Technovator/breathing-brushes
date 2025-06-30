@@ -11,73 +11,74 @@
 <body>
   <header>
     <div class="logo-container">
-    <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
-    <div class="logo-text">
-      <h1>Breathing Brushes</h1>
-      <p>Where every breath becomes art!</p>
+      <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>Breathing Brushes</h1>
+        <p>Where every breath becomes art!</p>
+      </div>
     </div>
-  </div>
-  <nav>
-    <a href="#paintings">Paintings</a>
-    <a href="#crafts">Crafts</a>
-    <a href="#custom">Custom</a>
-    <button class="snipcart-checkout cart-btn">
-      🎨 Cart (<span class="snipcart-items-count">0</span>)
-    </button>
-  </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <button class="snipcart-checkout cart-btn">
+        🎨 Cart (<span class="snipcart-items-count">0</span>)
+      </button>
+    </nav>
   </header>
 
-  <main class="product-details-container">
-    <div class="product-details">
-      <div class="gallery-container">
-        <!-- Main Image Display -->
-        <img id="mainImage" src="assets/mandala-front.jpg" alt="Mandala Art - Front View" class="main-image">
-        
-        <!-- Thumbnail Gallery -->
-        <div class="thumbnail-container">
-          <img src="assets/mandala-front.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/mandala-front.jpg')">
-          <img src="assets/mandala-side.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/mandala-side.jpg')">
-          <img src="assets/mandala-detail1.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail1.jpg')">
-          <img src="assets/mandala-detail2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail2.jpg')">
-          <img src="assets/mandala-packaging.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/mandala-packaging.jpg')">
-        </div>
+<main class="product-details-container">
+  <div class="product-details">
+    <div class="gallery-container">
+      <!-- Main Image Display -->
+      <img id="mainImage" src="assets/mandala-front.jpg" alt="Mandala Art - Front View" class="main-image" />
+
+      <!-- Thumbnail Gallery -->
+      <div class="thumbnail-container">
+        <img src="assets/mandala-front.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/mandala-front.jpg')" />
+        <img src="assets/mandala-side.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/mandala-side.jpg')" />
+        <img src="assets/mandala-detail1.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail1.jpg')" />
+        <img src="assets/mandala-detail2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail2.jpg')" />
+        <img src="assets/mandala-packaging.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/mandala-packaging.jpg')" />
       </div>
-      
+    </div>
+
+    <!-- ✅ Wrap text + button in one flex child -->
+    <div class="details-column">
       <div class="details-info">
         <h2>"Mandala Art"</h2>
         <p class="details-price">200 AED</p>
-        <div class="details-description">
-          <p>This exquisite mandala painting features:</p>
-          <ul>
-            <li>Front view showing the complete design</li>
-            <li>Side view demonstrating the canvas texture</li>
-            <li>Close-up details of intricate patterns</li>
-            <li>Packaging included for safe delivery</li>
-          </ul>
-          <p>Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.</p>
-        </div>
-        
-        <button class="snipcart-add-item buy-btn"
-          data-item-id="painting-1"
-          data-item-price="200"
-          data-item-url="/product-details.html?id=painting-1"
-          data-item-description="Hand-painted mandala artwork on canvas, 12x16 inches"
-          data-item-image="assets/mandala-front.jpg"
-          data-item-name="Mandala Art">
-          Add to Cart
-        </button>
+        <p class="details-description">
+          Hand-painted mandala artwork on canvas. This intricate piece measures 
+          12x16 inches and was created using high-quality acrylic paints. Each 
+          mandala is uniquely designed with spiritual symbolism and takes 
+          approximately 15 hours to complete.
+        </p>
+        <ul class="details-features">
+          <li>Size: 12x16 inches (30x40 cm)</li>
+          <li>Medium: Acrylic on canvas</li>
+          <li>Framing: Unframed (edges painted)</li>
+          <li>Shipping: Free worldwide delivery</li>
+        </ul>
+        <p>Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.</p>
       </div>
+
+      <button class="snipcart-add-item buy-btn"
+        data-item-id="painting-1"
+        data-item-price="200 AED"
+        data-item-url="/painting1-details.html?id=painting-1"
+        data-item-description="Hand-painted mandala artwork on canvas, 12x16 inches"
+        data-item-image="assets/mandala-front.jpg"
+        data-item-name="Mandala Art">
+        Add to Cart
+      </button>
     </div>
-    
-    <!-- Image Zoom Modal -->
-    <div id="imageModal" class="modal">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image">
-    </div>
-  </main>
+  </div>
+</main>
+
 
   <footer>
-       <div class="footer-content">
+    <div class="footer-content">
       <div class="footer-section">
         <h4>Quick Links</h4>
         <a href="#paintings">Paintings</a>
@@ -86,8 +87,9 @@
       </div>
       <div class="footer-section">
         <h4>Contact</h4>
-        <p>Email: hello@breathingbrushes.com</p>
-        <p>Phone: (123) 456-7890</p>
+        <p>Email: breathing.brushes001@gmail.com</p>
+        <p>Phone: +971506702932</p>
+        <p>Address: DSO, Dubai, UAE</p>
       </div>
     </div>
     <div class="copyright">

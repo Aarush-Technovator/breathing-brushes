@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Breathing Brushes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
+
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>Breathing Brushes</h1>
+        <p>Where every breath becomes art!</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <button class="snipcart-checkout cart-btn">
+        🎨 Cart (<span class="snipcart-items-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+<main class="product-details-container">
+  <div class="product-details">
+    <div class="gallery-container">
+      <!-- Main Image Display -->
+      <img id="mainImage" src="assets/custom-front.jpg" alt="Mandala Art - Front View" class="main-image" />
+
+      <!-- Thumbnail Gallery -->
+      <div class="thumbnail-container">
+        <img src="assets/custom-front.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/custom-front.jpg')" />
+        <img src="assets/custom-side.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/custom-side.jpg')" />
+        <img src="assets/custom-detail1.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/custom-detail1.jpg')" />
+        <img src="assets/custom-detail2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/custom-detail2.jpg')" />
+        <img src="assets/custom-packaging.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/custom-packaging.jpg')" />
+      </div>
+    </div>
+
+    <!-- ✅ Wrap text + button in one flex child -->
+    <div class="details-column">
+      <div class="details-info">
+        <h2>Custom Candles</h2>
+        <p class="details-price">100 AED</p>
+        <p class="details-description">
+          Hand-painted mandala artwork on canvas. This intricate piece measures 
+          12x16 inches and was created using high-quality acrylic paints. Each 
+          mandala is uniquely designed with spiritual symbolism and takes 
+          approximately 15 hours to complete.
+        </p>
+        <ul class="details-features">
+          <li>Size: 12x16 inches (30x40 cm)</li>
+          <li>Medium: Acrylic on canvas</li>
+          <li>Framing: Unframed (edges painted)</li>
+          <li>Shipping: Free worldwide delivery</li>
+        </ul>
+        <p>Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.</p>
+      </div>
+
+      <button class="snipcart-add-item buy-btn"
+        data-item-id="custom-1"
+        data-item-price="100 AED"
+        data-item-url="/custom1-details.html?id=painting-1"
+        data-item-description="Hand-painted artwork on candles"
+        data-item-image="assets/custom1.jpg"
+        data-item-name="Custom Candles">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="#paintings">Paintings</a>
+        <a href="#crafts">Crafts</a>
+        <a href="#custom">Custom Orders</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: breathing.brushes001@gmail.com</p>
+        <p>Phone: +971506702932</p>
+        <p>Address: DSO, Dubai, UAE</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2023 Breathing Brushes | Handmade Art & Crafts</p>
+    </div>
+  </footer>
+
+  <!-- Snipcart Setup -->
+  <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_API_KEY_HERE"></div>
+  
+  <script>
+    // Image Gallery Functionality
+    function changeImage(thumbnail, newSrc) {
+      // Update main image
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = newSrc;
+      mainImage.alt = thumbnail.alt;
+      
+      // Update active thumbnail
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+      });
+      thumbnail.classList.add('active');
+    }
+    
+    // Zoom Functionality
+    const mainImage = document.getElementById('mainImage');
+    const modal = document.getElementById('imageModal');
+    const zoomedImg = document.getElementById('zoomedImage');
+    
+    mainImage.addEventListener('click', function() {
+      zoomedImg.src = this.src;
+      zoomedImg.alt = this.alt;
+      modal.style.display = 'flex';
+    });
+    
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    
+    // Close modal when clicking outside image
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
