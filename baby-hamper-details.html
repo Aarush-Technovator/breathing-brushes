@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Breathing Brushes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html"><img src="assets/logo.png" alt="Breathing Brushes Logo" class="logo-img"></a>
+      <div class="logo-text">
+        <h1>Breathing Brushes</h1>
+        <p>Where every breath becomes art!</p>
+      </div>
+    </div>
+    <nav>
+      <a href="products.html">Products</a>
+      <a href="gift-hampers.html">Gift Hampers</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <button class="snipcart-checkout cart-btn">
+        🎨 Cart (<span class="snipcart-items-count">0</span>)
+      </button>
+    </nav>
+  </header>
+
+<main class="product-details-container">
+  <div class="product-details">
+    <div class="gallery-container">
+      <!-- Main Image Display -->
+      <img id="mainImage" src="assets/hamper-front-baby.jpg" alt="Baby Gift Hamper" class="main-image" />
+
+      <!-- Thumbnail Gallery -->
+      <div class="thumbnail-container">
+        <img src="assets/hamper-front-baby.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/hamper-front-baby.jpg')" />
+        <img src="assets/hamper-side-baby.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/hamper-side-baby.jpg')" />
+        <img src="assets/hamper-detail1-baby.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/hamper-detail1-baby.jpg')" />
+        <img src="assets/hamper-detail2-baby.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/hamper-detail2-baby.jpg')" />
+        <img src="assets/hamper-packaging-baby.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/hamper-packaging-baby.jpg')" />
+      </div>
+    </div>
+
+    <!-- ✅ Wrap text + button in one flex child -->
+    <div class="details-column">
+      <div class="details-info">
+        <h2>Baby Gift Hamper</h2>
+        <p class="details-price">299 AED</p>
+        <p class="details-description">
+          Celebrate new beginnings with our adorable Baby Gift Hamper — a bundle of joy packed with handcrafted keepsakes, soft natural fabrics, and gentle, sustainable goodies for little ones. Each piece is lovingly made to be safe, unique, and oh-so-cuddly, making it a thoughtful surprise for new parents. From personalized baby bibs to eco-friendly toys, this hamper wraps warmth, care, and creativity into one delightful box.
+        </p>
+        <p>Gift precious memories that grow with every giggle and cuddle!</p>
+      </div>
+
+      <button class="snipcart-add-item buy-btn"
+        data-item-id="hamper-baby"
+        data-item-price="96 AED"
+        data-item-url="/baby-hamper-details.html?id=hamper-baby"
+        data-item-description="Hand-made gift hamper for baby"
+        data-item-image="assets/hampers/baby-hamper.jpg"
+        data-item-name="Gift Hampers">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</main>
+
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="portfolio.html">Portfolio</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Me</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/breathing.brushes_dubai?igsh=MXVtbGc1em5zam92ag%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+          <a href="facebook.com/Kalakratibyankita?mibextid=LQQJ4d"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <p>Email: info@breathingbrushes.com</p>
+        <p>Phone: +971 50 670 2932</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2023 Breathing Brushes | Handmade Art & Crafts</p>
+    </div>
+  </footer>
+
+  <!-- Snipcart Setup -->
+  <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="YOUR_API_KEY_HERE"></div>
+  
+  <script>
+    // Image Gallery Functionality
+    function changeImage(thumbnail, newSrc) {
+      // Update main image
+      const mainImage = document.getElementById('mainImage');
+      mainImage.src = newSrc;
+      mainImage.alt = thumbnail.alt;
+      
+      // Update active thumbnail
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+      });
+      thumbnail.classList.add('active');
+    }
+    
+    // Zoom Functionality
+    const mainImage = document.getElementById('mainImage');
+    const modal = document.getElementById('imageModal');
+    const zoomedImg = document.getElementById('zoomedImage');
+    
+    mainImage.addEventListener('click', function() {
+      zoomedImg.src = this.src;
+      zoomedImg.alt = this.alt;
+      modal.style.display = 'flex';
+    });
+    
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    
+    // Close modal when clicking outside image
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+  <!-- Image Zoom Modal (place this right before </body>) -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image">
+</div>
+</body>
+</html>
