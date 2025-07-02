@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details | Breathing Brushes</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
   <header>
@@ -28,59 +29,46 @@
     </nav>
   </header>
 
-  <main class="product-details-container">
-    <div class="product-details">
-      <div class="gallery-container">
-        <img id="mainImage" src="assets/painting2.jpg" alt="Mandala Art - Front View" class="main-image" />
-        <div class="thumbnail-container">
-          <img src="assets/painting2.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/painting2.jpg')" />
-          <img src="assets/mandala-side2.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/mandala-side2.jpg')" />
-          <img src="assets/mandala-detail1.2.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail1.2.jpg')" />
-          <img src="assets/mandala-detail2.2.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/mandala-detail2.2.jpg')" />
-          <img src="assets/mandala-packaging2.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/mandala-packaging2.jpg')" />
-        </div>
-      </div>
+<main class="product-details-container">
+  <div class="product-details">
+    <div class="gallery-container">
+      <!-- Main Image Display -->
+      <img id="mainImage" src="assets/hamper-front-diwali.jpg" alt="Diwali Gift Hamper" class="main-image" />
 
-      <!-- ✅ WRAP TEXT + BUTTON TOGETHER -->
-      <div class="details-column">
-        <div class="details-info">
-          <h2>"Mandala Art"</h2>
-          <p class="details-price">499 AED</p>
-          <p class="details-description">
-            Hand-painted mandala artwork on canvas. This intricate piece measures 
-            12x16 inches and was created using high-quality acrylic paints. Each 
-            mandala is uniquely designed with spiritual symbolism and takes 
-            approximately 15 hours to complete.
-          </p>
-          <ul class="details-features">
-            <li>Size: 12x16 inches (30x40 cm)</li>
-            <li>Medium: Acrylic on canvas</li>
-            <li>Framing: Unframed (edges painted)</li>
-            <li>Shipping: Free worldwide delivery</li>
-          </ul>
-          <p>
-            Hand-painted with premium acrylics on stretched canvas. Each mandala is a unique meditation piece that brings positive energy to any space.
-          </p>
-        </div>
-
-        <button class="snipcart-add-item buy-btn"
-          data-item-id="painting-2"
-          data-item-price="499 AED"
-          data-item-url="/painting2-details.html?id=painting-2"
-          data-item-description="Hand-painted mandala artwork on canvas, 12x16 inches"
-          data-item-image="assets/mandala-front2.jpg"
-          data-item-name="Mandala Art">
-          Add to Cart
-        </button>
+      <!-- Thumbnail Gallery -->
+      <div class="thumbnail-container">
+        <img src="assets/hamper-front-diwali.jpg" alt="Front View" class="thumbnail active" onclick="changeImage(this, 'assets/hamper-front-diwali.jpg')" />
+        <img src="assets/hamper-side-diwali.jpg" alt="Side View" class="thumbnail" onclick="changeImage(this, 'assets/hamper-side-diwali.jpg')" />
+        <img src="assets/hamper-detail1-diwali.jpg" alt="Detail 1" class="thumbnail" onclick="changeImage(this, 'assets/hamper-detail1-diwali.jpg')" />
+        <img src="assets/hamper-detail2-diwali.jpg" alt="Detail 2" class="thumbnail" onclick="changeImage(this, 'assets/hamper-detail2-diwali.jpg')" />
+        <img src="assets/hamper-packaging-diwali.jpg" alt="Packaging" class="thumbnail" onclick="changeImage(this, 'assets/hamper-packaging-diwali.jpg')" />
       </div>
     </div>
-  </main>
 
-  <!-- Image Zoom Modal -->
-  <div id="imageModal" class="modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    <img id="zoomedImage" class="modal-img" src="" alt="Zoomed Image" />
+    <!-- ✅ Wrap text + button in one flex child -->
+    <div class="details-column">
+      <div class="details-info">
+        <h2>Diwali Gift Hamper</h2>
+        <p class="details-price">299 AED</p>
+        <p class="details-description">
+          Diwali is a time of joy, reflection, and sharing heartfelt moments with loved ones. Our Diwali Gift Hampers are carefully curated to bring warmth and delight to every home they enter. Each hamper combines handcrafted items, natural treats, and thoughtful details that celebrate the beauty of tradition in a modern way. From delicate candles adorned with mandalas to personalized keepsakes, every piece echoes the spirit of giving. Sustainably packaged and lovingly prepared, these hampers make your gesture truly memorable this festive season.
+        </p>
+        <p>Make your Diwali celebration more meaningful with a hamper that speaks from the heart.</p>
+      </div>
+
+      <button class="snipcart-add-item buy-btn"
+        data-item-id="hamper-diwali"
+        data-item-price="96 AED"
+        data-item-url="/diwali-hamper-details.html?id=hamper-diwali"
+        data-item-description="Hand-made gift hamper for diwali"
+        data-item-image="assets/hampers/diwali-hamper.jpg"
+        data-item-name="Gift Hampers">
+        Add to Cart
+      </button>
+    </div>
   </div>
+</main>
+
 
   <footer>
     <div class="footer-content">
@@ -109,33 +97,38 @@
   <!-- Snipcart Setup -->
   <script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
   <div hidden id="snipcart" data-api-key="YOUR_API_KEY_HERE"></div>
-
+  
   <script>
+    // Image Gallery Functionality
     function changeImage(thumbnail, newSrc) {
+      // Update main image
       const mainImage = document.getElementById('mainImage');
       mainImage.src = newSrc;
       mainImage.alt = thumbnail.alt;
-
+      
+      // Update active thumbnail
       document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.classList.remove('active');
       });
       thumbnail.classList.add('active');
     }
-
+    
+    // Zoom Functionality
     const mainImage = document.getElementById('mainImage');
     const modal = document.getElementById('imageModal');
     const zoomedImg = document.getElementById('zoomedImage');
-
+    
     mainImage.addEventListener('click', function() {
       zoomedImg.src = this.src;
       zoomedImg.alt = this.alt;
       modal.style.display = 'flex';
     });
-
+    
     function closeModal() {
       modal.style.display = 'none';
     }
-
+    
+    // Close modal when clicking outside image
     modal.addEventListener('click', function(e) {
       if (e.target === modal) {
         closeModal();
