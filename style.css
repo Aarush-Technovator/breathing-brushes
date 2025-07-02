@@ -1326,20 +1326,7 @@ body.loaded .hero h1 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Social Icons Styling */
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin: 15px 0;
-}
-
 .social-links a {
-  color: var(--primary);
-  font-size: 1.5rem;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.social-links a:hover {
-  transform: translateY(-3px);
-  color: var(--secondary);
+  background: #6d4c41 !important; /* Highlights clickable area */
+  padding: 5px !important;
 }
