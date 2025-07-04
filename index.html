@@ -151,6 +151,47 @@
     </div>
   </section>
 
+  <!-- Customer Reviews Section -->
+<section class="reviews-section">
+  <h2 class="section-title">Share Your Experience</h2>
+  
+  <!-- Review Submission Form -->
+  <div class="review-form-container">
+    <h3>Add Your Review</h3>
+    <form id="reviewForm" class="review-form">
+      <div class="form-group">
+        <label for="reviewName">Your Name</label>
+        <input type="text" id="reviewName" required>
+      </div>
+      <div class="form-group">
+        <label for="reviewLocation">Location</label>
+        <input type="text" id="reviewLocation">
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="star-rating">
+          <i class="far fa-star" data-rating="1"></i>
+          <i class="far fa-star" data-rating="2"></i>
+          <i class="far fa-star" data-rating="3"></i>
+          <i class="far fa-star" data-rating="4"></i>
+          <i class="far fa-star" data-rating="5"></i>
+        </div>
+        <input type="hidden" id="reviewRating" value="0">
+      </div>
+      <div class="form-group">
+        <label for="reviewText">Your Review</label>
+        <textarea id="reviewText" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+  </div>
+
+  <!-- Displayed Reviews -->
+  <div class="reviews-container" id="reviewsContainer">
+    <!-- Reviews will be loaded here dynamically -->
+  </div>
+</section>
+
 <!-- Custom Order Form -->
 <section class="custom-order">
   <div class="custom-order-container">
@@ -214,6 +255,92 @@
     document.body.classList.add('loaded');
   });
   </script>
+  <script>
+  // Review System Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    // Star Rating Selection
+    const stars = document.querySelectorAll('.star-rating i');
+    stars.forEach(star => {
+      star.addEventListener('click', function() {
+        const rating = this.getAttribute('data-rating');
+        document.getElementById('reviewRating').value = rating;
+        stars.forEach((s, idx) => {
+          s.classList.toggle('active', idx < rating);
+          s.classList.toggle('far', idx >= rating);
+          s.classList.toggle('fas', idx < rating);
+        });
+      });
+    });
+
+    // Form Submission
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const review = {
+        name: document.getElementById('reviewName').value,
+        location: document.getElementById('reviewLocation').value || 'Anonymous',
+        rating: parseInt(document.getElementById('reviewRating').value),
+        text: document.getElementById('reviewText').value,
+        date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
+      };
+
+      if(review.rating === 0) {
+        alert('Please select a rating');
+        return;
+      }
+
+      saveReview(review);
+      displayReviews();
+      reviewForm.reset();
+      resetStars();
+      alert('Thank you for your review!');
+    });
+
+    // Initialize
+    displayReviews();
+  });
+
+  // Storage Functions
+  function saveReview(review) {
+    const reviews = JSON.parse(localStorage.getItem('breathingBrushesReviews')) || [];
+    reviews.unshift(review); // Add new review at beginning
+    localStorage.setItem('breathingBrushesReviews', JSON.stringify(reviews));
+  }
+
+  function displayReviews() {
+    const reviews = JSON.parse(localStorage.getItem('breathingBrushesReviews')) || [];
+    const container = document.getElementById('reviewsContainer');
+    
+    if(reviews.length === 0) {
+      container.innerHTML = '<p class="no-reviews">Be the first to leave a review!</p>';
+      return;
+    }
+
+    container.innerHTML = reviews.map(review => `
+      <div class="review-card">
+        <div class="review-content">
+          <div class="stars">${'<i class="fas fa-star"></i>'.repeat(review.rating)}${review.rating % 1 !== 0 ? '<i class="fas fa-star-half-alt"></i>' : ''}</div>
+          <p class="review-text">"${review.text}"</p>
+        </div>
+        <div class="review-author">
+          <div class="author-info">
+            <h4>${review.name}</h4>
+            <p>${review.location} • ${review.date}</p>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function resetStars() {
+    document.querySelectorAll('.star-rating i').forEach(star => {
+      star.classList.remove('active', 'fas');
+      star.classList.add('far');
+    });
+    document.getElementById('reviewRating').value = 0;
+  }
+</script>
 </body>
 
   <!-- Snipcart Setup -->

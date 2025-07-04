@@ -1537,3 +1537,137 @@ body.loaded .hero h1 {
   width: 80%;
   margin: 0 auto;
 }
+
+/* Customer Reviews Section */
+.reviews-section {
+  padding: 80px 5%;
+  background-color: #fff9f5;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.review-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.author-info h4 {
+  margin: 0;
+  color: var(--primary);
+}
+
+.author-info p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .reviews-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .review-card {
+    padding: 20px;
+  }
+}
+
+/* Review Section Styles */
+.reviews-section {
+  padding: 80px 5%;
+  background: #f9f5f0;
+}
+
+.review-form-container {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.review-form h3 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.star-rating {
+  font-size: 24px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star-rating i.active {
+  color: #FFD700;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: 30px auto 0;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-3px);
+}
