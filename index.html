@@ -332,6 +332,105 @@
     document.getElementById('reviewRating').value = 0;
   }
 </script>
+
+<!-- Breathing Brushes AI Chatbot -->
+<div id="chatbot-container">
+  <button id="chatbot-button">
+    <i class="fas fa-paint-brush"></i>
+  </button>
+  <div id="chatbot-window" style="display:none;">
+    <div id="chatbot-header">
+      <h3>Breathing Brushes AI</h3>
+      <button id="close-chat">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">Hello! I'm your Breathing Brushes assistant. Ask me about our products, custom orders, or anything else!</div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-question" placeholder="Ask about our art...">
+      <button id="send-question"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Chatbot functionality using API
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatbotButton = document.getElementById('chatbot-button');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const closeChat = document.getElementById('close-chat');
+    const messagesDiv = document.getElementById('chatbot-messages');
+    const userInput = document.getElementById('user-question');
+    const sendButton = document.getElementById('send-question');
+
+    // Toggle chat window
+    chatbotButton.addEventListener('click', () => {
+      chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatbotWindow.style.display = 'none';
+    });
+
+    // Add message to chat
+    function addMessage(text, isUser) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+      messageDiv.textContent = text;
+      messagesDiv.appendChild(messageDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    // Fetch AI response from API
+    async function getAIResponse(question) {
+      try {
+        const response = await fetch("https://breathing-bot-api.onrender.com/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ prompt: question })
+        });
+
+        const data = await response.json();
+        return data.response || "Hmm, I couldn’t think of an answer. Try rephrasing?";
+      } catch (error) {
+        console.error("Fetch error:", error);
+        return "Oops! The AI is currently napping. Try again later or email info@breathingbrushes.com.";
+      }
+    }
+
+    // Send question
+    sendButton.addEventListener('click', async () => {
+      const question = userInput.value.trim();
+      if (question) {
+        addMessage(question, true);
+        userInput.value = '';
+
+        // Show typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.classList.add('bot-message');
+        typingIndicator.textContent = '...';
+        messagesDiv.appendChild(typingIndicator);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+        // Fetch response
+        const answer = await getAIResponse(question);
+
+        messagesDiv.removeChild(typingIndicator);
+        addMessage(answer, false);
+      }
+    });
+
+    // Allow pressing Enter to send
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendButton.click();
+      }
+    });
+  });
+</script>
+
 </body>
 
   <!-- Snipcart Setup -->
